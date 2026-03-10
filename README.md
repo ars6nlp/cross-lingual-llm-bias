@@ -19,7 +19,7 @@ As a multilingual speaker (Kazakh, Russian, English, Chinese) and an active lang
 
 ## 🧠 Methodology & Tech Stack
 - **Models Evaluated:** Llama 3 (Meta), Jais 30B (Inception Institute of Artificial Intelligence / MBZUAI).
-- **Data Engineering:** Custom cross-lingual conversational datasets targeting opinion-based prompts, safety edges, and cultural commonsense.
+- **Data Engineering:** Custom cross-lingual conversational datasets targeting opinion-based prompt, safety edges, and cultural commonsense.
 - **Frameworks:** PyTorch, HuggingFace Transformers, LangChain.
 
 ## 📊 Key Findings / Results
