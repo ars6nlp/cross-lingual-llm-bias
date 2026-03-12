@@ -20,7 +20,7 @@ As a multilingual speaker (Kazakh, Russian, English, Chinese) and an active lang
 ## 🧠 Methodology & Tech Stack
 - **Models Evaluated:** Llama 3 (Meta), Jais 30B (Inception Institute of Artificial Intelligence / MBZUAI).
 - **Data Engineering:** Custom cross-lingual conversational datasets targeting opinion-based prompt, safety edges, and cultural commonsense.
-- **Frameworks:** PyTorch, HuggingFace Transformers, LangChain.
+- **Frameworks:** PyTorch, HuggingFace Transformer, LangChain.
 
 ## 📊 Key Findings / Results
 - **The "Safety Curtain":** Llama 3 adds safety disclaimers to 73% of opinion responses in Russian, behaving significantly more cautiously than in English.
