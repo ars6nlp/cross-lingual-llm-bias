@@ -27,7 +27,7 @@ As a multilingual speaker (Kazakh, Russian, English, Chinese) and an active lang
 - **The "Underrepresented Tax":** Jais 30B provides answers that are on average ~50% shorter when queried in Kazakh compared to English, despite possessing the underlying knowledge.
 
 ## 📬 Contact & Research Interests
-I am actively seeking to expand this research into MENA-region NLP and culturally aligned foundation models. My primary academic aspiration is to join the research community at **MBZUAI** to contribute directly to the development of the **Jais** ecosystem and similar initiatives.
+I am actively seeking to expand this research into MENA-region NLP and culturally aligned foundation models. My primary academic aspiration is to join the research community to contribute directly to the development of the **Jais** ecosystem and similar initiatives.
 
 If you are a professor, researcher, or engineer working on multilingual LLM alignment, I would be thrilled to connect.
 
