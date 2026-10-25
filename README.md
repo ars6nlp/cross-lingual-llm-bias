@@ -1,18 +1,6 @@
 # Cross-Lingual-LLM-Bias
 
 [![Status](https://img.shields.io/badge/Status-Active_Research-blue.svg)]()
-[![Paper](https://img.shields.io/badge/Paper-Pending_Publication-green.svg)]()
-
-**Abstract:** This repository investigates the behavioral divergence and cultural alignment of open-source Large Language Models (LLMs) such as Llama 3 and Jais 30B when prompted in different languages, specifically examining variations in safety filters, personality, and knowledge depth between English, Russian, Kazakh, and Chinese.
-
-<div align="center">
-  <img src="similarity_heatmap.png" alt="Project Architecture" width="800">
-</div>
-
-# Cross-Lingual-LLM-Bias
-
-[![Status](https://img.shields.io/badge/Status-Active_Research-blue.svg)]()
-[![Report](https://img.shields.io/badge/Report-paper%2Freport.md-green.svg)](paper/report.md)
 
 **Abstract:** This repository investigates how Large Language Models (LLMs) change their behavior depending on the language of the prompt. The same 50 questions were asked in English, Russian, Kazakh, and Chinese to Llama 3.1 8B, Llama 3.3 70B, and Jais 30B, and the 600 resulting responses were compared on safety disclaimers, answer length, assertiveness, and cross-lingual semantic similarity.
 
