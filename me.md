@@ -2,7 +2,7 @@
 
 **Arsen Bakhitbekov**
 *High School Researcher & AI Enthusiast*
-*NIS PhM Almaty | HSK 4 Holder*
+*NIS PhM Almaty | HSK 3 Holder*
 
 I am a passionate explorer of Natural Language Processing (NLP) and the intersection of AI with language learning. As a student at NIS PhM Almaty, I balance rigorous academic coursework with real-world problem solving.
 
@@ -25,17 +25,14 @@ An independent research initiative investigating how Large Language Models (LLMs
   - Kazakh (Native)
   - Russian (Fluent)
   - English (Fluent)
-  - Chinese (HSK 4 - Intermediate/Advanced)
-  - *Next Goal: Arabic (To unlock research into the rich history and future of NLP in the MENA region)*
+  - Chinese (HSK 3 - Intermediate)
 
 - **Interests**: 
   - **Low-Resource NLP**: Making AI work for languages often left behind (like Kazakh).
   - **Cultural Alignment**: Ensuring AI respects and understands diverse cultural norms, not just Western ones.
   - **Philosophy of AI**: Understanding the "mind" of the model.
 
-## 🎯 Objective: MBZUAI AIR Program
-
-I am applying to the **Mohamed bin Zayed University of Artificial Intelligence (MBZUAI) Advanced Summer Research Program**. I believe that the future of AI lies in diversity — both in the people building it and the languages it supports. I want to contribute my energy, my technical skills, and my unique perspective as a Central Asian researcher to the global AI community.
+I believe that the future of AI lies in diversity — both in the people building it and the languages it supports. I want to contribute my energy, my technical skills, and my unique perspective as a Central Asian researcher to the global AI community.
 
 ---
 *Connect with me to discuss NLP, startups, or the future of language learning.*
