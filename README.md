@@ -7,6 +7,8 @@
 
 <div align="center">
   <img src="similarity_heatmap.png" alt="Cross-lingual semantic similarity heatmap" width="800">
+  <br>
+  <em>Kazakh pairs shown for completeness; not reliable, see Limitations.</em>
 </div>
 
 ## 🌱 Personal Motivation
@@ -24,7 +26,7 @@ I speak Kazakh and Russian natively, study in English and am learning Chinese. I
   - Jais 30B (Inception / MBZUAI), queried manually through [jaischat.ai](https://jaischat.ai/) and parsed with `scripts/parse_manual.py`.
 - **Metrics:**
   - Answer length in words (Chinese characters for Chinese). Kazakh and English are also compared in characters, normalized by how long the same question is in each language.
-  - Hedging phrases (e.g., "however", "it depends on") and assertiveness markers, detected with language-specific regex patterns. English and Russian hedging patterns are mirrored one to one in `scripts/reanalysis.py`.
+  - Hedging phrases (e.g., "however", "it depends on") and assertiveness markers, detected with language-specific regex patterns. English and Russian hedging patterns are mirrored one to one in `scripts/analyze_responses.py`; `scripts/reanalysis.py` compares them with the original, asymmetric patterns.
   - Cross-lingual semantic similarity: cosine similarity of `paraphrase-multilingual-MiniLM-L12-v2` embeddings for all 6 language pairs.
 - **Tech stack:** Python, Groq API, sentence-transformers, pandas, NumPy, matplotlib, seaborn, Streamlit, Plotly.
 

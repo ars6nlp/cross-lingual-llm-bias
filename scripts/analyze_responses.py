@@ -39,32 +39,32 @@ LANG_NAMES = {"en": "English", "ru": "Russian", "zh": "Chinese", "kz": "Kazakh"}
 # Disclaimer / Hedging Patterns (multilingual)
 # ---------------------------------------------------------------------------
 
+# English and Russian lists are mirrored one to one: each English pattern has a
+# Russian twin of the same breadth. Earlier versions were not symmetric (Russian
+# matched every "однако", English matched "however" only before "it's"/"there"),
+# which produced a false Russian/English gap. See scripts/reanalysis.py.
 DISCLAIMER_PATTERNS = {
     "en": [
-        r"\bi('m| am) (just )?an? (ai|language model|assistant)\b",
-        r"\bi (cannot|can't|don't) (provide|give|offer)\b",
-        r"\bit('s| is) (important|worth) (to note|noting|mentioning)\b",
-        r"\bthis is (a )?(complex|nuanced|subjective)\b",
-        r"\bthere (are|is) no (single|one|definitive) (right )?answer\b",
-        r"\bI (should|must) (note|mention|clarify)\b",
-        r"\bdisclaimer\b",
-        r"\bin my opinion\b",
-        r"\bsome people (believe|think|argue)\b",
-        r"\bit depends on\b",
-        r"\bhowever,? (it('s| is)|there)\b",
+        r"\bhowever\b",
         r"\bon the other hand\b",
+        r"\bon (the )?one hand\b",
+        r"\bdepends on\b",
+        r"\b(important|worth) (to note|noting)\b",
+        r"\bsome (people )?(believe|think|argue)\b",
+        r"\b(complex|subjective|nuanced|controversial) (question|issue|topic)\b",
+        r"\bno (single|one|definitive|clear) answer\b",
+        r"\bi('m| am) (just )?an? (ai|language model)\b",
     ],
     "ru": [
-        r"\bя (являюсь|—) (искусственным интеллектом|языковой моделью|ии)\b",
-        r"\bважно (отметить|заметить|учитывать)\b",
-        r"\bэто (сложный|субъективный|неоднозначный) вопрос\b",
-        r"\bоднозначного ответа нет\b",
-        r"\bнекоторые (считают|полагают|думают)\b",
-        r"\bс одной стороны\b",
-        r"\bс другой стороны\b",
-        r"\bзависит от\b",
-        r"\bследует отметить\b",
         r"\bоднако\b",
+        r"\bс другой стороны\b",
+        r"\bс одной стороны\b",
+        r"\bзависит от\b",
+        r"\bважно (отметить|заметить|учитывать)\b",
+        r"\bнекоторые (люди )?(считают|полагают|думают)\b",
+        r"\b(сложный|субъективный|неоднозначный|спорный) (вопрос|тема)\b",
+        r"\b(однозначного|единого|единственного) ответа нет\b",
+        r"\bя (являюсь )?(ии|искусственным интеллектом|языковой моделью)\b",
     ],
     "zh": [
         r"我是(一个)?人工智能",

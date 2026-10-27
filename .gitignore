@@ -35,3 +35,16 @@ models/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Secrets (keep only the template)
+.env.*
+!.env.example
+*.pem
+*.key
+.streamlit/secrets.toml
+
+# Caches
+.cache/
+.pytest_cache/
+.mypy_cache/
+.hf_cache/
