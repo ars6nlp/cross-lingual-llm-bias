@@ -1,15 +1,16 @@
 # Cross-Lingual-LLM-Bias
 
 [![Status](https://img.shields.io/badge/Status-Active_Research-blue.svg)]()
+[![Report](https://img.shields.io/badge/Report-paper%2Freport.md-green.svg)](paper/report.md)
 
-**Abstract:** This repository investigates how Large Language Models (LLMs) change their behavior depending on the language of the prompt. The same 50 questions were asked in English, Russian, Kazakh, and Chinese to Llama 3.1 8B, Llama 3.3 70B, and Jais 30B, and the 600 resulting responses were compared on safety disclaimers, answer length, assertiveness, and cross-lingual semantic similarity.
+**Abstract:** This repository investigates how Large Language Models (LLMs) change their behavior depending on the language of the prompt. The same 50 questions were asked in English, Russian, Kazakh, and Chinese to Llama 3.1 8B, Llama 3.3 70B, and Jais 30B, and the 600 resulting responses were compared on hedging phrases, answer length, assertiveness, and cross-lingual semantic similarity.
 
 <div align="center">
   <img src="similarity_heatmap.png" alt="Cross-lingual semantic similarity heatmap" width="800">
 </div>
 
 ## 🌱 Personal Motivation
-As a multilingual speaker (Kazakh, Russian, English, Chinese) and an active language learner, I noticed early on that AI systems don't just "translate" thought; they change it depending on the language used. I started this research because I want to make sure that non-Western languages aren't penalized by the architectures of modern LLMs. Working with **Jais 30B** during this project opened my eyes to the potential of region-specific, culturally aligned models. My goal is to deepen my research into MENA-region NLP and work more extensively with the Jais ecosystem to bridge the linguistic divide in AI.
+I speak Kazakh and Russian natively, study in English and am learning Chinese. I noticed that AI systems don't just "translate" a question; the answer itself can change with the language. I started this project to measure how much, with a focus on Kazakh, a language that most models see very little of during training.
 
 ## 🎯 Research Questions
 - Does the "safety curtain" shift when the same opinion question is asked in English and in Russian?
@@ -20,25 +21,27 @@ As a multilingual speaker (Kazakh, Russian, English, Chinese) and an active lang
 - **Benchmark:** 50 questions (15 factual, 15 opinion, 20 commonsense), each written in English, Russian, Kazakh, and Chinese: 200 prompts per model, 600 responses in total.
 - **Models:**
   - Llama 3.1 8B and Llama 3.3 70B (Meta), queried through the Groq API with the same neutral system prompt: *"You are a helpful assistant. Answer the question directly and concisely."*
-  - Jais 30B (Inception / MBZUAI), queried manually through [jaischat.ai](https://jaischat.ai/) and parsed with scripts/parse_manual.py.
+  - Jais 30B (Inception / MBZUAI), queried manually through [jaischat.ai](https://jaischat.ai/) and parsed with `scripts/parse_manual.py`.
 - **Metrics:**
-  - Answer length in words (Chinese characters for Chinese).
-  - Safety disclaimers and assertiveness markers, detected with language-specific regex patterns.
-  - Cross-lingual semantic similarity: cosine similarity of paraphrase-multilingual-MiniLM-L12-v2 embeddings for all 6 language pairs.
+  - Answer length in words (Chinese characters for Chinese). Kazakh and English are also compared in characters, normalized by how long the same question is in each language.
+  - Hedging phrases (e.g., "however", "it depends on") and assertiveness markers, detected with language-specific regex patterns. English and Russian hedging patterns are mirrored one to one in `scripts/reanalysis.py`.
+  - Cross-lingual semantic similarity: cosine similarity of `paraphrase-multilingual-MiniLM-L12-v2` embeddings for all 6 language pairs.
 - **Tech stack:** Python, Groq API, sentence-transformers, pandas, NumPy, matplotlib, seaborn, Streamlit, Plotly.
 
 ## 📊 Key Findings
-- **The "Safety Curtain":** Llama 3.1 8B added at least one safety disclaimer to **80% of opinion answers in Russian (12 of 15) vs. 27% in English (4 of 15)**. Llama 3.3 70B shows the same direction on a smaller scale (33% vs. 13%).
-- **The "Underrepresented Tax":** Jais 30B answers in Kazakh averaged **22 words vs. 48 words in English**, about 50% shorter.
+- **Jais 30B cannot answer in Kazakh:** 49 of 50 Kazakh replies repeat the question, and **39 of 50 end with the same meaningless phrase**. The rest are nonsense too (one says water boils at 30 to 40 degrees).
+- **The "Underrepresented Tax" depends on the model:** after adjusting for question length, Llama 3.1 8B answered more briefly in Kazakh than in English on **34 of 50 questions** (sign test p = 0.015). Llama 3.3 70B showed no consistent gap (23 of 50, p = 0.67).
+- **No "Safety Curtain" after a fix:** an earlier version of this README reported hedging in 12 of 15 Russian vs. 4 of 15 English opinion answers for Llama 3.1 8B. That gap came from the detector: the Russian list matched every "однако" ("however"), the English list only "however, it's/there". With mirrored patterns the counts are 12 vs. 9 (McNemar p = 0.45), so there is no clear difference.
 
-All numbers can be reproduced from results/analysis_summary.csv.
+All numbers can be reproduced with `python scripts/reanalysis.py .` from the repository root.
 
 ## ⚠️ Limitations
-- **Small sample:** 15 opinion questions per language and no statistical significance testing, so the findings are exploratory.
-- **Keyword-based detection:** disclaimers are counted with regex patterns, which can miss paraphrased disclaimers or produce false positives.
+- **Small sample:** 15 opinion and 50 total questions per language, so the findings are exploratory even where a test is significant.
+- **Keyword-based detection:** hedging is counted with regex patterns, which can miss paraphrases or produce false positives. Patterns must have the same breadth in every language, or the comparison measures the detector instead of the model.
 - **Different collection method for Jais:** Jais responses were collected through a web chat rather than an API, so the system prompt and generation settings differ from the Llama runs.
-- **Kazakh similarity scores:** the embedding model was not trained on Kazakh, so similarity scores for Kazakh language pairs are unreliable and are not reported as findings.
+- **Kazakh similarity scores:** Kazakh is not among the languages the embedding model was trained to compare (its paraphrase training covers about 50 languages), so similarity scores for Kazakh language pairs are unreliable and are not reported as findings.
 - **Gemini:** a Gemini 2.0 Flash Lite run was attempted but returned no responses because of API quota limits, so it is excluded from the analysis.
+
 ## 🔁 Reproduce
 ```bash
 cp .env.example .env      # add your GROQ_API_KEY
@@ -47,9 +50,9 @@ streamlit run app.py      # interactive dashboard
 ```
 
 ## 📬 Contact & Research Interests
-I am actively seeking to expand this research into MENA-region NLP and culturally aligned foundation models. My primary academic aspiration is to join the research community and contribute to the development of the **Jais** ecosystem and similar initiatives.
+I want to continue this work on evaluating language models in low-resource languages, starting with Kazakh, and eventually help build models that handle Kazakh well.
 
-If you are a professor, researcher, or engineer working on multilingual LLM alignment, I would be glad to connect.
+If you are a professor, researcher, or engineer working on multilingual evaluation or alignment, I would be glad to connect.
 
 **Arsen Bakhitbekov**: [bakhitbekovv@gmail.com](mailto:bakhitbekovv@gmail.com)
 
