@@ -1,7 +1,7 @@
 # Cross-Lingual-LLM-Bias
 
 [![Status](https://img.shields.io/badge/Status-Active_Research-blue.svg)]()
-[![Report](https://img.shields.io/badge/Report-paper%2Freport.md-green.svg)](paper/report.md)
+
 
 **Abstract:** This repository investigates how Large Language Models (LLMs) change their behavior depending on the language of the prompt. The same 50 questions were asked in English, Russian, Kazakh, and Chinese to Llama 3.1 8B, Llama 3.3 70B, and Jais 30B, and the 600 resulting responses were compared on hedging phrases, answer length, assertiveness, and cross-lingual semantic similarity.
 
